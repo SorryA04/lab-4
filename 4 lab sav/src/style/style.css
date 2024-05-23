@@ -1,0 +1,103 @@
+*{
+	margin:1000;
+	padding:0;
+	box-sizing:border-box; /*задаю границы padding and border без учета margin */
+}
+
+body{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+	transition: background-image 1s; 
+	background-size: 100%;s
+}
+
+#clock{
+	position:absolute;
+	align-items:center;
+	color:rgba(10, 10, 10, 1);
+	text-shadow: white 1px 0 10px;
+	margin-left:5px;
+}	
+
+.clock-container{
+	display: flex;
+	width: 700px;
+	height: 700px;
+	justify-content:center;
+	align-items:center;
+	background: url(clock.png) center/cover no-repeat, rgba(255, 255, 240, 0.9) 100%/cover;
+	overflow: hide;
+	border:2px solid black;
+	border-radius:50%;
+	box-shadow: 0 -15px 15px rgba(173, 216, 230, 0.5),
+	inset 0 -15px 15px rgb(26, 24, 16), 
+	0 15px 15px rgba(173, 216, 230, 0.5), 
+	inset 0 15px 15px rgb(26, 24, 16);
+}
+
+.clock-container:before{
+	content:'';
+	position:absolute;
+	width:30px;
+	height:30px;
+	background-color:rgb(29,30,51);
+	border-radius:50%;
+	z-index:999; /* Чем выше значение, тем выше он будет находиться поверх других элементов*/
+}
+.clock-container .hour,
+.clock-container .minute,
+.clock-container .second{
+	position:absolute;
+}
+.clock-container .hour, .hr{
+	width:320px;
+	height:320px;
+}
+.clock-container .minute, .mn{
+	width:550px;
+	height:550px;
+}
+.clock-container .second, .sc{
+	width:590px;
+	height:590px;
+}
+
+.hr, .mn, .sc{
+	display:flex;
+	justify-content:center;
+	position:absolute;
+	border-radius:50%;
+	transition: transform 0.05s linear;
+}
+
+.hr:before{
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 200px;
+    background-color: Black;
+    z-index: 10;
+    border-radius: 16px 16px 0 0;
+}
+.mn:before{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 350px;
+    background-color: Black;
+    z-index: 11;
+    border-radius: 16px 16px 0 0;
+	transition: transform 0.05s linear;
+}
+.sc:before{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 380px;
+    background-color: Red;
+    z-index: 12;
+    border-radius: 8px 8px 0 0;
+}
+
